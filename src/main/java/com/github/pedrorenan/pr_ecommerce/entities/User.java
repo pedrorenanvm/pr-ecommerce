@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Entity
@@ -17,5 +19,6 @@ public class User {
     private String phone;
     private LocalDate birthDay;
     private String password;
-
+    @OneToMany(mappedBy = "client") // mapeia que um client vai ter muitos pedidos
+    private List<Order> orders = new ArrayList<>();
 }

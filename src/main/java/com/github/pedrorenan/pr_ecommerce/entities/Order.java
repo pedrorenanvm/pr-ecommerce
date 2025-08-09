@@ -20,4 +20,8 @@ public class Order {
     @JoinColumn(name = "client_id") //pega o id do client dentro da tabela de usuário
     private User client;
 
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
+
+
 }

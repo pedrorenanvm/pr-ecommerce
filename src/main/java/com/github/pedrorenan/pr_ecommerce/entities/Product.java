@@ -3,8 +3,10 @@ package com.github.pedrorenan.pr_ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.aspectj.weaver.ast.Or;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,4 +26,11 @@ public class Product {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>(); // Set pois a categoria nao pode repetir
+
+    @OneToMany(mappedBy = "id.product")
+    private Set<OrderItem> items = new HashSet<>();
+
+    public List<Order> getOrders(){
+        return items.stream().map(OrderItem::getOrder).toList();
+    }
 }

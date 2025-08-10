@@ -18,7 +18,7 @@ public class User {
     @Column(unique = true)
     private String email;
     private String phone;
-    private LocalDate birthDay;
+    private LocalDate birthDate;
     private String password;
     @OneToMany(mappedBy = "client") // mapeia que um client vai ter muitos pedidos
     private List<Order> orders = new ArrayList<>();

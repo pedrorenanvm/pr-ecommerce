@@ -3,6 +3,7 @@ package com.github.pedrorenan.pr_ecommerce.services;
 import com.github.pedrorenan.pr_ecommerce.dtos.ProductDTO;
 import com.github.pedrorenan.pr_ecommerce.entities.Product;
 import com.github.pedrorenan.pr_ecommerce.repositories.ProductRepository;
+import com.github.pedrorenan.pr_ecommerce.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +19,8 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public ProductDTO findById(Long id) {
-        Product product = productRepository.findById(id).get();
+        Product product = productRepository.findById(id).orElseThrow(() ->
+                new ResourceNotFoundException("Product not found with id " + id));
         return new ProductDTO(product);
     }
 

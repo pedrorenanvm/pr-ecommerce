@@ -3,6 +3,7 @@ package com.github.pedrorenan.pr_ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.aspectj.weaver.ast.Or;
 
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Entity
 @Data
+@EqualsAndHashCode(of = "id")
 @Table(name = "tb_product")
 public class Product {
     @Id

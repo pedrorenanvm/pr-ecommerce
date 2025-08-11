@@ -3,8 +3,10 @@ package com.github.pedrorenan.pr_ecommerce.entities;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
 
 @Entity
+@EqualsAndHashCode(of = "id")
 @Table(name = "tb_order_item")
 public class OrderItem {
     @EmbeddedId

@@ -2,6 +2,7 @@ package com.github.pedrorenan.pr_ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.Instant;
 import java.util.HashSet;
@@ -10,6 +11,7 @@ import java.util.Set;
 
 @Data
 @Entity
+@EqualsAndHashCode(of = "id")
 @Table(name = "tb_order")
 public class Order {
     @Id

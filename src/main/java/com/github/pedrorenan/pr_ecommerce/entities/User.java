@@ -2,6 +2,7 @@ package com.github.pedrorenan.pr_ecommerce.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import java.util.List;
 
 @Data
 @Entity
+@EqualsAndHashCode(of = "id")
+
 @Table(name = "tb_user")
 public class User {
     @Id

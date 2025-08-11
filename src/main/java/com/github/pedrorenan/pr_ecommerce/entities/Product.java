@@ -17,7 +17,7 @@ import java.util.Set;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     @Column(columnDefinition = "TEXT") //mapeia que vai ser um textFiled e nao um varchar
     private String description;
